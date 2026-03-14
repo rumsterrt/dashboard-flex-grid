@@ -1,0 +1,95 @@
+/* Контейнер для ресайза должен иметь position: relative */
+.react-resizable {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.fixed {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.-free {
+  flex: 1;
+}
+
+.dynamic {
+  flex-shrink: 1;
+}
+
+.resize-handle-both {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: se-resize;
+}
+
+.resize-handle-y {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  cursor: ns-resize;
+  background: repeating-linear-gradient(
+    90deg,
+    #ccc,
+    #ccc 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+
+/* Стилизация самой ручки (по умолчанию это span с классом react-resizable-handle) */
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: #000; /* Черный квадратик для теста */
+  z-index: 10;
+  border-radius: 2px;
+}
+
+/* Можно добавить иконку стрелочки или полоски */
+.react-resizable-both::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+/* Можно добавить иконку стрелочки или полоски */
+.react-resizable-y::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+      left: 4px;
+    right: 4px;
+  border-bottom: 2px solid white;
+}
+
+.react-resizable-both {
+  cursor: se-resize; /* Курсор изменения размера */
+}
+
+.react-resizable-y {
+  right: 50%;
+  cursor: s-resize; /* Курсор изменения размера */
+}
+
